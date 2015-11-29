@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = ViewBag.Training.Theme + " - информация о тренинге";
+}
+
+<h2>@ViewBag.Training.Theme</h2>
+<h4>Описание</h4>
+<p>@ViewBag.Training.Description</p>
+<h5><a href="/Registration/@ViewBag.Training.Id">Зарегистрироваться на тренинг</a></h5>
+<h4>Список зарегистрировавшихся студентов</h4>
+<ol>
+@foreach(var st in ViewBag.Students)
+{
+    <li>@st.FirstName @st.SecondName</li>
+}
+</ol>

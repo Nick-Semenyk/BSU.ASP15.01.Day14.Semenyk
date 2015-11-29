@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Регистрация на тренинги";
+}
+
+<div>
+    <h3>Список доступных тренингов</h3>
+    <ul>
+        @foreach (var t in ViewBag.Trainings)
+        {
+            <li><a href="/TrainingInfo/@t.Id">@t.Theme</a></li>
+        }
+    </ul>
+</div>

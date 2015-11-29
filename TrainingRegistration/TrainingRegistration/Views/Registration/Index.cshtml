@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = ViewBag.Training.Theme + " - регистрация на тренинг";
+}
+
+<h2>Регистрация на тренинг @ViewBag.Training.Theme</h2>
+
+<p>Заполните следующие поля для успешной регистрации</p>
+<p><span class="error">@ViewBag.Error</span></p>
+<form name="registration" method="POST">
+    <table>
+        <tr>
+            <td>Имя:</td>
+            <td><input name="firstName" value="@ViewBag.firstName"/></td>
+        </tr>
+        <tr>
+            <td>Фамилия:</td>
+            <td><input name="secondName" value="@ViewBag.secondName"/></td>
+        </tr>
+        <tr>
+            <td>E-mail адрес:</td>
+            <td><input name="email" value="@ViewBag.email"/></td>
+        </tr>
+        <tr>
+            <td>Университет:</td>
+            <td>
+                <select name="university">
+                    @foreach (var u in ViewBag.Universities)
+                    {
+                        {
+                            if (u.Id == ViewBag.university)
+                            {
+                                ViewBag.SelectedUniversity = "selected";
+                            }
+                            else
+                            {
+                                ViewBag.SelectedUniversity = "";
+                            }
+                        }
+                        <option value="@u.Id" @ViewBag.SelectedUniversity>@u.Name</option>
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Курс:</td>
+            <td><input name="year" value="@ViewBag.year"/></td>
+        </tr>
+        <tr><td colspan="2"><input type="submit" name="registration" value="Зарегистрироваться" /></td></tr>
+    </table>
+</form>
